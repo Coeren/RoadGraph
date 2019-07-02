@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RoadGraph xmlns="RoadGraph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="RoadGraph RoadGraph.xsd">
+    <Node Name="node1">
+            <RoadTo>node2</RoadTo>
+    </Node>
+    <Node Name="node2"/>
+    <Node Name="node3">
+            <RoadTo>node1</RoadTo>
+            <RoadTo>node3</RoadTo>
+    </Node>
+</RoadGraph>
