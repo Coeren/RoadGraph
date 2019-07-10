@@ -13,15 +13,23 @@
             <xs:field xpath="@Name"/>
         </xs:key>
         <xs:keyref name="NodesRef" refer="l:NodesKey">
-            <xs:selector xpath="l:Node/l:RoadTo"/>
+            <xs:selector xpath="l:Node/*/l:RoadTo"/>
             <xs:field xpath="."/>
         </xs:keyref>
     </xs:element>
 
     <xs:complexType name="NodeType">
         <xs:sequence>
-            <xs:element name="RoadTo" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Left" type="l:LinkType" minOccurs="0"/>
+            <xs:element name="Straight" type="l:LinkType" minOccurs="0"/>
+            <xs:element name="Right" type="l:LinkType" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="Name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="LinkType">
+        <xs:sequence>
+            <xs:element name="RoadTo" type="xs:string" maxOccurs="5"/>
+        </xs:sequence>
     </xs:complexType>
 </xs:schema>
